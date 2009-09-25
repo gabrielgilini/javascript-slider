@@ -32,6 +32,46 @@
 	</style>
 
     <script type="text/javascript" src="slider.js"></script>
+    <script type="text/javascript">
+        window.onload =
+            function()
+            {
+                var s = new Slider('father');
+                document.getElementById('start').onclick = s.start;
+                document.getElementById('stop').onclick = s.stop;
+            };
+    </script>
+    <style type="text/css">
+        #demo
+        {
+            margin: 0 auto;
+            width: 500px;
+        }
+        #father
+        {
+            position: relative;
+
+            height: 100px;
+            overflow: hidden;
+            border: 2px dashed #ccc;
+        }
+        #father div {
+            position: absolute;
+            line-height: 100px;
+            width: 500px;
+            text-align: center;
+            color: #fff;
+        }
+        .one {
+            background: #777;
+        }
+        .two {
+            background: #999;
+        }
+        .three {
+            background: #bbb;
+        }
+    </style>
 
 </head>
 
@@ -54,11 +94,40 @@
       Really simple, yet dependency-free, JavaScript slider
     </div>
 
+    <h2>Demo</h2>
+    <div id='demo'>
+        <div id='father'>
+            <div class='one'>Box 1</div>
+            <div class='two'>Box 2</div>
+            <div class='three'>Box 3</div>
+        </div>
+        <button id='start'>Start</button>
+        <button id='stop'>Stop</button>
+    </div>
+
+    <h2>Usage</h2>
+    <p>
+        The <code>Slider</code> constructor (although it can be called as a function) takes two parameters:
+        <code>fatherId</code> and <code>options</code>; and returns an Object with references to two functions: <code>Slider::start()</code> and <code>Slider::stop()</code>.
+    </p>
+    <p>
+        The first parameter, <code>fatherId</code>, should be the <code>id</code> attribute of the element which contains all the 'slides'.
+    </p>
+    <p>
+        The <code>options</code> parameter, is an Object that can have the following properties:
+<pre>{
+    changeDelay: 5,         // Time, in seconds, between slide changes
+    slideStep: 10,          // Number of pixels that will be slided per `slideDelay'
+    slideDelay: 10,         // Time, in miliseconds, between animations
+    slidesTagName: 'div'    // TagName of the slide elements
+}</pre>
+        The values presented above are the default ones.
+    </p>
+
+    <p>
+        Note: when constructed, the slider starts automatically. The <code>start</code> and <code>stop</code> functions are for pausing and resuming purposes.
     <h2>Author</h2>
     <p>Gabriel Gilini (gabrielgilini@gmail.com)</p>
-
-    <h2>Demo</h2>
-
 
     <h2>Download</h2>
     <p>
