@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>Slider demo</title>
+    <script type="text/javascript" src="slider.js"></script>
+    <script type="text/javascript">
+        window.onload =
+            function()
+            {
+                var s = new Slider('father');
+                document.getElementById('start').onclick = s.start;
+                document.getElementById('stop').onclick = s.stop;
+            };
+    </script>
+    <style>
+        #father
+        {
+            position: relative;
+            width: 500px;
+            height: 100px;
+            overflow: hidden;
+            border: 2px dashed #ccc;
+        }
+        #father div {
+            position: absolute;
+            line-height: 100px;
+            width: 500px;
+            text-align: center;
+            color: #fff;
+        }
+        .one {
+            background: #777;
+        }
+        .two {
+            background: #999;
+        }
+        .three {
+            background: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div id='father'>
+        <div class='one'>Box 1</div>
+        <div class='two'>Box 2</div>
+        <div class='three'>Box 3</div>
+    </div>
+
+    <button id='start'>Start</button>
+
+    <button id='stop'>Stop</button>
+</body>
+</html>
