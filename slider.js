@@ -18,9 +18,9 @@ function Slider(fatherId, options)//changeDelay, slideStep, slideDelay, slidesTa
     var sTop = getHeight(father);
     var cTop = sTop;
     var px = setPx();
-    changeDelay = (options['changeDelay'] || 5) * 1000; // seconds
-    slideStep = options['slideStep'] || 10; // pixels
-    slideDelay = options['slideDelay'] || 10; // ms
+    var changeDelay = (options['changeDelay'] || 5) * 1000; // seconds
+    var slideStep = options['slideStep'] || 10; // pixels
+    var slideDelay = options['slideDelay'] || 10; // ms
 
     resetSlides();
     start();
