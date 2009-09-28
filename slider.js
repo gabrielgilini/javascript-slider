@@ -2,7 +2,7 @@
  * @param fatherId string The id attribute of the father UL
  * @param options object contains:
  *          changeDelay int default 5 Time, in seconds, between slide changes
- *          slideStep int default 10 Number of pixels that will be slided per `slideDelay'
+ *          slideStep int default 10 Number of pixels that will be slid per `slideDelay'
  *          slideDelay int default 10 Time, in miliseconds, between animations
  *          slidesTagName string default 'div' TagName of the slide elements
  * @returns object containing start() and stop()
@@ -11,7 +11,7 @@ function Slider(fatherId, options)//changeDelay, slideStep, slideDelay, slidesTa
 {
     options = options || {};
     var father = document.getElementById(fatherId);
-    var slides = Array.prototype.slice.call(father.getElementsByTagName(options['slidesTagName'] || 'div'));
+    var slides = father.getElementsByTagName(options['slidesTagName'] || 'div');
     var last = slides.length - 1;
     var sTicket, lTicket;
     var toSlide = 0;
