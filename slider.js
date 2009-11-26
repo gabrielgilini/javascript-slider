@@ -7,10 +7,10 @@
  *          slidesTagName string default 'div' TagName of the slide elements
  * @returns object containing start() and stop()
  **/
-function Slider(fatherId, options)//changeDelay, slideStep, slideDelay, slidesTagName)
+function Slider(father, options)//changeDelay, slideStep, slideDelay, slidesTagName)
 {
     options = options || {};
-    var father = document.getElementById(fatherId);
+    father = (typeof father == 'string') ? document.getElementById(fatherId) : father;
     var slides = father.getElementsByTagName(options['slidesTagName'] || 'div');
     var last = slides.length - 1;
     var sTicket, lTicket;
@@ -22,8 +22,11 @@ function Slider(fatherId, options)//changeDelay, slideStep, slideDelay, slidesTa
     var slideStep = options['slideStep'] || 10; // pixels
     var slideDelay = options['slideDelay'] || 10; // ms
 
-    resetSlides();
-    start();
+    if(slides.length > 1)
+    {
+        resetSlides();
+        start();
+    }
 
     function start()
     {
